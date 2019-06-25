@@ -12,6 +12,7 @@ public class EnemyManager : MonoBehaviour
 
     public GameObject HP_Color;
     public Text HP_Text;
+    public Text Level_Text;
 
     public Sprite[] rewardIcons;
     public GameObject rewardPrefab;
@@ -185,7 +186,6 @@ public class EnemyManager : MonoBehaviour
             {
                 Player.instance.gold -= monster.upgradePrice();
                 monster.level += 1;
-                Debug.Log(monster.upgradePrice());
                 updateMonsterArea();
             }
 
@@ -208,6 +208,7 @@ public class EnemyManager : MonoBehaviour
     public void updateMonsterArea()
     {
         NumberConverter num = new NumberConverter();
+        Level_Text.text = "Level " + monster.level;
         GoldReward.text = num.numberConverter( monster.gold());
         LootReward.text = num.numberConverter(monster.loot());
         KeyPercentage.text = monster.key_drop.ToString() + "%";

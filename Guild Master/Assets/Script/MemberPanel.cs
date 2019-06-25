@@ -85,5 +85,6 @@ public class MemberPanel : MonoBehaviour
         Debug.Log(GuildHall.instance.adventurer.Count);
 
         ShowMember();
+        DetailedMember(GuildHall.instance.adventurer[0]);
     }
 }

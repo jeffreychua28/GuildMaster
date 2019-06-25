@@ -711,6 +711,7 @@ MonoBehaviour:
   levelBar: {fileID: 3281296437958608842}
   wealthBar: {fileID: 3281296439298658463}
   Price: {fileID: 3281296437956605778}
+  damageText: {fileID: 3281296437936285593}
 --- !u!1 &3281296439100493263
 GameObject:
   m_ObjectHideFlags: 0

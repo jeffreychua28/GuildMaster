@@ -10,6 +10,7 @@ public class MemberHirePanel : MonoBehaviour
     public Image levelBar;
     public Image wealthBar;
     public Text Price;
+    public Text damageText;
 
     public void showcaseAdventurer()
     {
@@ -27,6 +28,9 @@ public class MemberHirePanel : MonoBehaviour
         }
 
         NumberConverter num = new NumberConverter();
+        string damage = num.numberConverter(adventurer.damage());
+        damageText.text = damage;
+
         string price = num.numberConverter(adventurer.price);
         Price.text = price;
     }
