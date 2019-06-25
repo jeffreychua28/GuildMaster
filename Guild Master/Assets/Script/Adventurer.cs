@@ -39,7 +39,7 @@ public class Adventurer
         return 1f;
     }
 
-    int baseEXP = 60;
+    int baseEXP = 300;
     public double expRequired()
     {
         return classCoe() * baseEXP * Mathf.Pow(level,(1+ (level/20)));

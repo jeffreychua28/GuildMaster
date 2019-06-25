@@ -11,6 +11,8 @@ public class MemberUpgradePanel : MonoBehaviour
     public Image wealthBar;
     public Text Price;
 
+    
+
     public void Upgrade()
     {
         PurchaseCheck check = new PurchaseCheck();

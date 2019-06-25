@@ -5,10 +5,11 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Monster", menuName = "IdleGame/Monster", order = 1)]
 public class Monsters : ScriptableObject
 {
-    double experienceBase;
+    
     public double experience()
     {
-        return 0;
+        double experienceBase = 100;
+        return experienceBase * monsterCoe * level;
     }
 
     double goldBase = 100;

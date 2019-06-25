@@ -116,6 +116,7 @@ public class EnemyManager : MonoBehaviour
     {
         currentHealth = monster.health();
         death = false;
+        PartyExperienceIncrease(monster);
     }
 
     IEnumerator OnDeath(int i)
@@ -138,7 +139,6 @@ public class EnemyManager : MonoBehaviour
         
         obj.GetComponent<SetRewardIcon>().setup(num.numberConverter(Mathf.Round((float)value)).ToString(), rewardIcons[i]);
 
-       
     }
 
     public bool addPartyMember(GameObject adv)
@@ -199,6 +199,26 @@ public class EnemyManager : MonoBehaviour
             party.adventurer[i].GetComponent<AddMemberListPrefab>().setMeUp(party.adventurer[i].GetComponent<AddMemberListPrefab>().adv, party.adventurer[i].transform.parent);
         }
         updatePartyDamage();
+    }
+
+    //gives exp when killing mobs
+    void PartyExperienceIncrease(Monsters monster)
+    {
+        Debug.Log(party.adventurer.Count);
+        for(int i = 0; i < party.adventurer.Count; i++)
+        {
+            Debug.Log("adventurer " + i);
+            Adventurer temp = party.adventurer[i].GetComponent<AddMemberListPrefab>().adv;
+            temp.currentExperience += monster.experience();
+
+            Debug.Log(temp.currentExperience);
+            if (temp.currentExperience >= temp.expRequired())
+            {
+                temp.currentExperience -= temp.expRequired();
+                temp.level += 1;
+                updateMemberListArea();
+            }
+        }
     }
 
     public Text GoldReward;
